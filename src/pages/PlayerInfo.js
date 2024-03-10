@@ -163,7 +163,7 @@ export default function PlayerInfo() {
       })}
       <div>
         <br/>
-        <label for="cars">Choose person to Pay :</label>
+        <label>Choose person to Pay  :</label>
         <input placeholder="pay.." value={pay} onChange={(e)=>{handlePayment(e)}} type="number" />
 
         {
