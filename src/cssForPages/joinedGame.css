@@ -1,0 +1,47 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 220px); 
+  gap: 20px; 
+  padding: 80px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+.grid-item input {
+  width: 80%;
+  padding: 5px;
+  margin: 5px 0; /* Add margin only to top and bottom */
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+}
+
+.cell {
+  width: 100px; 
+  height: 100px; 
+  background-color: #ccc; 
+  border: 1px solid #000; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
