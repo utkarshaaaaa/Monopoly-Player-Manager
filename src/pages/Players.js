@@ -64,7 +64,14 @@ export default function Players({
                   <li>
                     properties:
                     {players.properties.map((property, indx) => {
-                      return <div>{property.toLowerCase()}</div>;
+                      return <div>
+                        {/* {
+                          property ===null?<div>Null</div>:<div>
+                            {property}
+                          </div>
+                        } */}
+                        {property}
+                      </div>;
                     })}
                   </li>
                 </ul>

@@ -2,6 +2,7 @@ import React ,{useState,useContext,useEffect,useReducer}from 'react'
 import axios from 'axios'
 import {Data} from '../Context'
 import { useNavigate } from "react-router-dom";
+import "../cssForPages/join.css";
 
 export default function Join_Game() {
 
@@ -59,11 +60,16 @@ export default function Join_Game() {
   
   return (
     
+    <>
+    <div>
+      
+    </div>
 
     
     <div>
+      
 
-      <h3>Enter Game Id</h3><input value={game_Id} onChange={onChanging_game_Id}/>
+      <h3>Enter Game Id</h3><input value={game_Id} onChange={onChanging_game_Id} placeholder='Enter Game ID'/>
 
       <div>
         <button onClick={join_Game} >Join the Game</button>
@@ -75,5 +81,7 @@ export default function Join_Game() {
 
       
     </div>
+
+    </>
   )
 }
