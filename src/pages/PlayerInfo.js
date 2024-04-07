@@ -122,7 +122,7 @@ export default function PlayerInfo() {
 
   return (
     <>
-     <div>
+      <div>
         {/* {Player_info.map((e) => {
           return (
             <div>
@@ -199,113 +199,113 @@ export default function PlayerInfo() {
       <div> */}
       </div>
 
-
-
       <div>
         <section className="container">
-          <div  className="form">
+          <div className="form">
             {Player_info.map((e) => {
               return (
                 <div>
                   <div className="det">
-                  <h2> Player Details</h2>
-                    </div>
-                  <br/>
+                    <h2> Player Details</h2>
+                  </div>
+                  <br />
                   <div className="header">
-
-                   <div><h3> Amount : {e.amount}</h3> </div>
-                   <div> <h3>Player Name :  {e.Player_name}</h3></div> 
-
-
+                    <div>
+                      <h3> Amount : {e.amount}</h3>{" "}
+                    </div>
+                    <div>
+                      {" "}
+                      <h3>Player Name : {e.Player_name}</h3>
+                    </div>
                   </div>
 
-                 
                   <div className="input-box">
-                    <label><h4> Add Property</h4></label>
-                    <input type="text" placeholder="Property"   value={property}
+                    <label>
+                      <h4> Add Property</h4>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Property"
+                      value={property}
                       onChange={(e) => {
                         handleProperty(e);
-                      }} />
+                      }}
+                    />
                   </div>
-                  
-                    <button onClick={addProperty}>Add</button>
-                  
+
+                  <button onClick={addProperty}>Add</button>
                 </div>
               );
-            })} 
+            })}
             <br />
             <div className="input-box">
-            <label><h4> Choose person to Pay :</h4></label>
-            <input
-              placeholder="pay.."
-              value={pay}
-              onChange={(e) => {
-                handlePayment(e);
-              }}
-              type="number"
-            />
-
-            <div>
-  
-            {
-              
-              <div className="sel">
-              <div className="select">
-              <select
+              <label>
+                <h4> Choose person to Pay :</h4>
+              </label>
+              <input
+                placeholder="pay.."
+                value={pay}
                 onChange={(e) => {
-                  payPlayerId(e);
+                  handlePayment(e);
                 }}
-              >
-                {PlayersToPay.map((player) => {
-                  return (
-                    <option value={player._id} key={player._id}>
-                      {player.Player_name}
-                    </option>
-                  );
-                })}
-                
-              </select>
+                type="number"
+              />
+
+              <div>
+                {
+                  <div className="sel">
+                    <div className="select">
+                      <select
+                        onChange={(e) => {
+                          payPlayerId(e);
+                        }}
+                      >
+                        {PlayersToPay.map((player) => {
+                          return (
+                            <option value={player._id} key={player._id}>
+                              {player.Player_name}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                }
               </div>
-              </div>
-              
-           
-            }
+              <br />
             </div>
-            <br/>
-           
-        
-            </div>
-            <br/>
+            <br />
 
             <div>
-            <button onClick={payCreditsToPlayers}>Pay to Players</button>
+              <button onClick={payCreditsToPlayers}>Pay to Players</button>
             </div>
-            
+
             <div className="input-box">
-            <div>
-            Pay to Bank:{" "}
-            <input
-              value={payBankAmount}
-              onChange={(e) => {
-                handleBankAmount(e);
-              }}
-              placeholder="amount..."
-              type="number"
-            />
-            <button onClick={payToBank}>Pay to Bank </button>
-          </div>
-          
+              <div>
+                Pay to Bank:{" "}
+                <input
+                  value={payBankAmount}
+                  onChange={(e) => {
+                    handleBankAmount(e);
+                  }}
+                  placeholder="amount..."
+                  type="number"
+                />
+                <button onClick={payToBank}>Pay to Bank </button>
+              </div>
+
               <button onClick={lapAmount}>Click to Add Round Money</button>
             </div>
-            <button  onClick={() => {
-            navigate(-1);
-          }}>Go back</button>
+            <button
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Go back
+            </button>
           </div>
         </section>
       </div>
-
-   
-
     </>
   );
 }
