@@ -122,7 +122,7 @@ export default function PlayerInfo() {
 
   return (
     <>
-     
+     <div>
         {/* {Player_info.map((e) => {
           return (
             <div>
@@ -197,19 +197,21 @@ export default function PlayerInfo() {
       </div>
 
       <div> */}
+      </div>
+
 
 
       <div>
-        <section class="container">
-          <div  class="form">
+        <section className="container">
+          <div  className="form">
             {Player_info.map((e) => {
               return (
                 <div>
-                  <div class="det">
+                  <div className="det">
                   <h2> Player Details</h2>
                     </div>
                   <br/>
-                  <div class="header">
+                  <div className="header">
 
                    <div><h3> Amount : {e.amount}</h3> </div>
                    <div> <h3>Player Name :  {e.Player_name}</h3></div> 
@@ -218,7 +220,7 @@ export default function PlayerInfo() {
                   </div>
 
                  
-                  <div class="input-box">
+                  <div className="input-box">
                     <label><h4> Add Property</h4></label>
                     <input type="text" placeholder="Property"   value={property}
                       onChange={(e) => {
@@ -232,7 +234,7 @@ export default function PlayerInfo() {
               );
             })} 
             <br />
-            <div class="input-box">
+            <div className="input-box">
             <label><h4> Choose person to Pay :</h4></label>
             <input
               placeholder="pay.."
@@ -247,8 +249,8 @@ export default function PlayerInfo() {
   
             {
               
-              <div class="sel">
-              <div class="select">
+              <div className="sel">
+              <div className="select">
               <select
                 onChange={(e) => {
                   payPlayerId(e);
@@ -279,7 +281,7 @@ export default function PlayerInfo() {
             <button onClick={payCreditsToPlayers}>Pay to Players</button>
             </div>
             
-            <div class="input-box">
+            <div className="input-box">
             <div>
             Pay to Bank:{" "}
             <input
