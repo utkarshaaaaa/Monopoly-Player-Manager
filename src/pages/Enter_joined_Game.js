@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Data } from "../Context";
 import "../cssForPages/joinedGame.css";
 import Players from "./Players";
@@ -10,6 +10,7 @@ export default function Enter_joined_Game() {
     useContext(Data);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [playersPlaying, setPlayersPlaying] = useState(0);
 
@@ -32,6 +33,10 @@ export default function Enter_joined_Game() {
         });
     }, 10);
   }, []);
+
+  const navigateToCreateGame = () => {
+    navigate("/create");
+  };
 
   //    const AddProperties=(e,id)=>{
 
@@ -59,7 +64,11 @@ export default function Enter_joined_Game() {
       <h3>Players Playing {playersPlaying} </h3>
       <div>
         {joined_Players_details.length === 0 ? (
-          <div> Game Id Not avaible</div>
+          <div>
+            {" "}
+            <div>Game Id Not avaible</div>
+            <button onClick={navigateToCreateGame}>Create Game</button>
+          </div>
         ) : (
           <div>
             <div class="grid-container">

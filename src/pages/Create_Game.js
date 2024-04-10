@@ -37,7 +37,7 @@ export default function Create_Game() {
 
   const createPlayers = () => {
     if (playerName === "" || createGameId === "") {
-      console.log("fill up the name");
+      alert("fill up the name");
     }
     
     axios
@@ -75,7 +75,10 @@ export default function Create_Game() {
   return (
     <div>
       <div>
-        <h3> Player {playersNumber}</h3>
+        <h2> Player {playersNumber}</h2>
+      </div>
+      <div>
+        <h3> Game ID - {createGameId}</h3>
       </div>
       <div>
         Enter Name :{" "}
@@ -125,7 +128,7 @@ export default function Create_Game() {
                           <ul>
                             <li> Name : {e.Player_name}</li>
                             <li>Game ID : {e.game_id}</li>
-                            <li>Amount : {e.amount}</li>
+                            <li>Amount : ${e.amount}</li>
                           </ul>
                           
                         </p>
