@@ -28,10 +28,10 @@ export default function Enter_joined_Game() {
         })
         .catch((error) => {
           if (error.message === "Request failed with status code 404") {
-            console.log("error");
+            console.log("error 404");
           }
         });
-    }, 10);
+    }, 100);
   }, []);
 
   const navigateToCreateGame = () => {
@@ -61,8 +61,15 @@ export default function Enter_joined_Game() {
 
   return (
     <>
-      <h3>Players Playing {playersPlaying} </h3>
-      <div>
+    <div className="parent">
+
+      <div className="heading">
+
+      <h2>Players Playing {playersPlaying} </h2>
+
+      </div>
+      
+      <div >
         {joined_Players_details.length === 0 ? (
           <div>
             {" "}
@@ -90,6 +97,8 @@ export default function Enter_joined_Game() {
             </div>
           </div>
         )}
+      </div>
+
       </div>
     </>
   );

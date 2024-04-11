@@ -211,7 +211,7 @@ export default function PlayerInfo() {
                   <br />
                   <div className="header">
                     <div>
-                      <h3> Amount : {e.amount}</h3>{" "}
+                      <h3> Amount : ${e.amount}</h3>{" "}
                     </div>
                     <div>
                       {" "}
