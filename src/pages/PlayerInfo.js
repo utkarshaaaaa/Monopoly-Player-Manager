@@ -12,6 +12,8 @@ export default function PlayerInfo() {
   const navigate = useNavigate();
 
   const [Player_info, set_Player_Info] = useState([]);
+  const [loadingPayment, setLoadingPayment] = useState(false);
+  const[loadingLapAmount,setLoadingLapAmount]=useState(false)
   const [property, setProperty] = useState("");
   const [PlayersToPay, setPlayersToPay] = useState([]);
   const [pay, setPay] = useState();
@@ -65,14 +67,23 @@ export default function PlayerInfo() {
   };
 
   const lapAmount = () => {
-    axios
+
+    setLoadingLapAmount(true)
+
+    setTimeout(() => {
+
+      axios
       .post(`http://localhost:3001/players/lap${PlayerId}`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data)
+        setLoadingLapAmount(false)
       })
       .catch((err) => {
         console.log(err);
       });
+      
+    }, 1500);
+    
   };
 
   const handlePayment = (e) => {
@@ -103,103 +114,32 @@ export default function PlayerInfo() {
   };
 
   const payToBank = async () => {
-    await axios
-      .post(`http://localhost:3001/players/pay_Bank${PlayerId}`, {
-        pay_Bank: payBankAmount,
-      })
-      .then((res) => {
-        if (res.data.message === "not enough balance") {
-          alert("not enough balance");
-        } else {
-          console.log(res.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    setLoadingPayment(true)
+    setTimeout(() => {
+      axios
+        .post(`http://localhost:3001/players/pay_Bank${PlayerId}`, {
+          pay_Bank: payBankAmount,
+        })
+        .then((res) => {
+          if (res.data.message === "not enough balance") {
+            alert("not enough balance");
+          } else {
+            console.log(res.data);
+          }
+          setLoadingPayment(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 1000);
+
     setPayBankAmount("");
   };
 
   return (
     <>
-      <div>
-        {/* {Player_info.map((e) => {
-          return (
-            <div>
-              Amount: {e.amount}
-              <div>Player Name:{e.Player_name}</div>
-              <div>
-                Add property:
-                <input
-                  value={property}
-                  onChange={(e) => {
-                    handleProperty(e);
-                  }}
-                />
-                <button onClick={addProperty}>Add</button>
-              </div>
-              <div>
-                <button onClick={lapAmount}>Round Money</button>
-              </div>
-            </div>
-          );
-        })}
-        <div>
-          <br />
-          <label>Choose person to Pay :</label>
-          <input
-            placeholder="pay.."
-            value={pay}
-            onChange={(e) => {
-              handlePayment(e);
-            }}
-            type="number"
-          />
-
-          {
-            <select
-              onChange={(e) => {
-                payPlayerId(e);
-              }}
-            >
-              {PlayersToPay.map((player) => {
-                return (
-                  <option value={player._id} key={player._id}>
-                    {player.Player_name}
-                  </option>
-                );
-              })}
-            </select>
-          }
-
-          <button onClick={payCreditsToPlayers}>Pay</button>
-
-          <div>
-            Pay to Bank:{" "}
-            <input
-              value={payBankAmount}
-              onChange={(e) => {
-                handleBankAmount(e);
-              }}
-              placeholder="amount..."
-              type="number"
-            />
-            <button onClick={payToBank}>Pay to Bank </button>
-          </div>
-        </div>
-        <button
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          Go back
-        </button>
-      </div>
-
-      <div> */}
-      </div>
-
-      <div>
+      <div className="par">
         <section className="container">
           <div className="form">
             {Player_info.map((e) => {
@@ -291,10 +231,30 @@ export default function PlayerInfo() {
                   placeholder="amount..."
                   type="number"
                 />
-                <button onClick={payToBank}>Pay to Bank </button>
+                <button onClick={payToBank}>
+                  <div className="button_payment">
+                    {loadingPayment ? (
+                      <svg viewBox="25 25 50 50">
+                        <circle r="20" cy="50" cx="50"></circle>
+                      </svg>
+                    ) : (
+                      <div> Pay to Bank</div>
+                    )}
+                  </div>
+                </button>
               </div>
 
-              <button onClick={lapAmount}>Click to Add Round Money</button>
+              <button onClick={lapAmount}>
+              <div className="button_payment">
+                    {loadingLapAmount ? (
+                      <svg viewBox="25 25 50 50">
+                        <circle r="15" cy="50" cx="50"></circle>
+                      </svg>
+                    ) : (
+                      <div> Add Round Money</div>
+                    )}
+                  </div>
+              </button>
             </div>
             <button
               onClick={() => {

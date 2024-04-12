@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 220px); 
   gap: 30px; 
-  padding: 80px;
+  padding: 40px;
 }
 
 .grid-item {
@@ -37,27 +37,32 @@
   align-items: center;
 }
 
-/* .parent{
+.parent{
   
   width: 100%;
   height: 900px;
   padding: 0px;
-  background-image: url("https://t3.ftcdn.net/jpg/05/90/65/34/360_F_590653471_HrBFw7EgQBW9RBOlKZgXpfZ6nExBwpdt.jpg");
+  background-image: url("https://i.pinimg.com/originals/82/88/e9/8288e9eec7c66c0790ee546462b8e204.gif");
   background-repeat: no-repeat;
+  background-size: 70em 60em;
 
-  background-size: cover;
 
-} */
+}
 .heading{
   display: flex;
   justify-content: center;
+
   
 }
+
+
 body{
   background-image: url("https://i.pinimg.com/originals/82/88/e9/8288e9eec7c66c0790ee546462b8e204.gif");
   background-repeat: no-repeat;
   background-size: cover ;
   width: 100%;
+  display: flex;
+  justify-content: center;
   height: 100%;
  
 

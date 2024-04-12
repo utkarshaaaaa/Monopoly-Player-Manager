@@ -6,13 +6,19 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
+/* body {
  
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 
+} */
+.par{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 .container {
   position: relative;
@@ -138,12 +144,12 @@ body {
   }
   
   select {
-    /* Reset Select */
+   
     appearance: none;
     outline: 10px red;
     border: 0;
     box-shadow: none;
-    /* Personalize */
+  
     flex: 1;
     padding: 0 1em;
     color: #fff;
@@ -151,11 +157,11 @@ body {
     background-image: none;
     cursor: pointer;
   }
-  /* Remove IE arrow */
+ 
   select::-ms-expand {
     display: none;
   }
-  /* Custom Select wrapper */
+  
   .select {
     position: relative;
     display: flex;
@@ -164,7 +170,7 @@ body {
     border-radius: .25em;
     overflow: hidden;
   }
-  /* Arrow */
+  
   .select::after {
     content: '\25BC';
     position: absolute;
@@ -175,13 +181,12 @@ body {
     transition: .25s all ease;
     pointer-events: none;
   }
-  /* Transition */
+
   .select:hover::after {
     color: #f39c12;
   }
   
-  /* Other styles*/
- 
+
   
   a {
     font-weight: bold;
@@ -192,7 +197,7 @@ body {
     background: pink;
   }
   
-  /* 가운데정렬 - position,transform*/
+ 
   .sel {
     position : absolute;
     top: 50%;
@@ -201,16 +206,86 @@ body {
     translate(-50%,-50%); 
   }
   
-  /* 가운데정렬 - flexbox*/
-  /* 근데 이건 1행 정렬이된다. */
-  /* .container {
-    display: flex;
-    justify-content: center;
-    align-items: absolute;
-  } */
-  
   .down_note {
       display: flex;
       justify-content: center;
   
   }
+
+
+
+
+.button_payment{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+svg {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+ }
+ 
+ circle {
+  fill: none;
+  stroke: hsl(215, 69%, 11%);
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes rotate4 {
+  100% {
+   transform: rotate(360deg);
+  }
+ }
+ 
+ @keyframes dash4 {
+  0% {
+   stroke-dasharray: 1, 200;
+   stroke-dashoffset: 0;
+  }
+ 
+  50% {
+   stroke-dasharray: 90, 200;
+   stroke-dashoffset: -35px;
+  }
+ 
+  100% {
+   stroke-dashoffset: -125px;
+  }
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
