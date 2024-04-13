@@ -54,6 +54,7 @@ export default function Join_Game() {
         <h3>Enter Game Id</h3>
         <input
           value={game_Id}
+          required='true'
           onChange={onChanging_game_Id}
           placeholder="Enter Game ID"
         />

@@ -57,9 +57,7 @@
 
 
 body{
-  background-image: url("https://i.pinimg.com/originals/82/88/e9/8288e9eec7c66c0790ee546462b8e204.gif");
-  background-repeat: no-repeat;
-  background-size: cover ;
+  
   width: 100%;
   display: flex;
   justify-content: center;

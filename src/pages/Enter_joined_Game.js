@@ -89,6 +89,7 @@ export default function Enter_joined_Game() {
                         lap_Money={e.lap_money}
                         properties={e.properties}
                         amount={e.amount}
+                        image={e.image}
                       />
                     </div>
                   </>
