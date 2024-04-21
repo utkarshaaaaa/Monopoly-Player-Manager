@@ -55,7 +55,7 @@ export default function Players({
           <>
             <div
               onClick={() => {
-                PlayerInfo(players.id);
+                PlayerInfo(players.id)
               }}
               key={indx}
             >
