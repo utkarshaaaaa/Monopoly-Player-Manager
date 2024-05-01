@@ -68,7 +68,9 @@ export default function Enter_joined_Game() {
       <h2>Players Playing {playersPlaying} </h2>
 
       </div>
-      
+      <div>
+        
+      </div>
       <div >
         {joined_Players_details.length === 0 ? (
           <div>
