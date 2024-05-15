@@ -82,7 +82,7 @@ export default function PlayerInfo() {
         console.log(err);
       });
       
-    }, 1500);
+    }, 1600);
     
   };
 
