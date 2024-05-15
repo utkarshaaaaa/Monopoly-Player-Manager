@@ -31,7 +31,7 @@ export default function Enter_joined_Game() {
             console.log("error 404");
           }
         });
-    }, 100);
+    }, 150);
   }, []);
 
   const navigateToCreateGame = () => {
