@@ -61,47 +61,41 @@ export default function Enter_joined_Game() {
 
   return (
     <>
-    <div className="parent">
-
-      <div className="heading">
-
-      <h2>Players Playing {playersPlaying} </h2>
-
-      </div>
-      <div>
-        
-      </div>
-      <div >
-        {joined_Players_details.length === 0 ? (
-          <div>
-            {" "}
-            <div>Game Id Not avaible</div>
-            <button onClick={navigateToCreateGame}>Create Game</button>
-          </div>
-        ) : (
-          <div>
-            <div class="grid-container">
-              {joined_Players_details.map((e, indx) => {
-                return (
-                  <>
-                    <div style={{ cursor: "pointer" }} className="grid-item">
-                      <Players
-                        id={e._id}
-                        Player_name={e.Player_name}
-                        lap_Money={e.lap_money}
-                        properties={e.properties}
-                        amount={e.amount}
-                        image={e.image}
-                      />
-                    </div>
-                  </>
-                );
-              })}
+      <div className="parent">
+        <div className="heading">
+          <h2>Players Playing {playersPlaying} </h2>
+        </div>
+        <div></div>
+        <div>
+          {joined_Players_details.length === 0 ? (
+            <div>
+              {" "}
+              <div>Game Id Not avaible</div>
+              <button onClick={navigateToCreateGame}>Create Game</button>
             </div>
-          </div>
-        )}
-      </div>
-
+          ) : (
+            <div>
+              <div class="grid-container">
+                {joined_Players_details.map((e, indx) => {
+                  return (
+                    <>
+                      <div style={{ cursor: "pointer" }} className="grid-item">
+                        <Players
+                          id={e._id}
+                          Player_name={e.Player_name}
+                          lap_Money={e.lap_money}
+                          properties={e.properties}
+                          amount={e.amount}
+                          image={e.image}
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

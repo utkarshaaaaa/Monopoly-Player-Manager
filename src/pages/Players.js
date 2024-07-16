@@ -11,7 +11,7 @@ export default function Players({
   lap_Money,
   properties,
   amount,
-  image
+  image,
 }) {
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ export default function Players({
       lapMoney: lap_Money,
       properties: properties,
       amount: amount,
-      image:image
+      image: image,
     },
   ]);
 
@@ -55,7 +55,7 @@ export default function Players({
           <>
             <div
               onClick={() => {
-                PlayerInfo(players.id)
+                PlayerInfo(players.id);
               }}
               key={indx}
             >

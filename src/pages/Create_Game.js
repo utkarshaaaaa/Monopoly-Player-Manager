@@ -9,9 +9,9 @@ export default function Create_Game() {
   const [createGameId, setCreateGameId] = useState("");
   const [playerName, setPlayerName] = useState("");
   const [createdPlayers, setCreatedPlayers] = useState([]);
-  const[playerImage,setPlayerImage]=useState('')
-  const[created,setCreated]=useState(false)
-  const[startingAmount,setStartingAmount]=useState(0)
+  const [playerImage, setPlayerImage] = useState("");
+  const [created, setCreated] = useState(false);
+  const [startingAmount, setStartingAmount] = useState(0);
 
   const [playersNumber, setPlayerNumber] = useState(1);
 
@@ -26,28 +26,24 @@ export default function Create_Game() {
   };
 
   useEffect(() => {
-
     gameId();
-
   }, []);
 
-  const handleImage=(e)=>{
-    setPlayerImage(e.target.value)
-  }
+  const handleImage = (e) => {
+    setPlayerImage(e.target.value);
+  };
 
   const createPlayers = () => {
     if (playerName === "" || createGameId === "") {
       alert("fill up the name");
     }
-    
+
     axios
       .post("http://localhost:3001/players/create", {
-      name: playerName,
-      game_id: createGameId,
-      amount:startingAmount,
-      image:playerImage
-      
-
+        name: playerName,
+        game_id: createGameId,
+        amount: startingAmount,
+        image: playerImage,
       })
       .then((res) => {
         setCreatedPlayers([...createdPlayers, res.data.user]);
@@ -58,7 +54,7 @@ export default function Create_Game() {
       .catch((err) => {
         console.log(err);
       });
-    setCreated(true)
+    setCreated(true);
     setPlayerName("");
   };
 
@@ -66,9 +62,9 @@ export default function Create_Game() {
     navigate("/");
   };
 
-  const handleAmount=(e)=>{
-    setStartingAmount(e.target.value)
-  }
+  const handleAmount = (e) => {
+    setStartingAmount(e.target.value);
+  };
 
   console.log(createGameId);
 
@@ -87,28 +83,40 @@ export default function Create_Game() {
           onChange={(e) => {
             handlePlayerName(e);
           }}
-        placeholder="name.."/>
+          placeholder="name.."
+        />
       </div>
 
       <div>
         Duration of Game : <input type="time" />
       </div>
       <div>
-        Amount : <input type="number" value={startingAmount} onChange={(e)=>{handleAmount(e)}} />
+        Amount :{" "}
+        <input
+          type="number"
+          value={startingAmount}
+          onChange={(e) => {
+            handleAmount(e);
+          }}
+        />
       </div>
       <div>
-        image: <input value={playerImage} onChange={(e)=>{handleImage(e)}} placeholder="URL.."/>
+        image:{" "}
+        <input
+          value={playerImage}
+          onChange={(e) => {
+            handleImage(e);
+          }}
+          placeholder="URL.."
+        />
       </div>
-      <br/>
+      <br />
       <div>
         <button onClick={createPlayers}>Create Players</button>
       </div>
       <div>
-        {
-          created ?  <h3>Players Created</h3> :<div></div>
-        }
-       
-       
+        {created ? <h3>Players Created</h3> : <div></div>}
+
         <div>
           <div class="container">
             {createdPlayers.map((e, indx) => {
@@ -118,10 +126,9 @@ export default function Create_Game() {
                     <div class="card">
                       <img
                         src={e.image}
-                        style={{width:"auto",height:"auto"}}
+                        style={{ width: "auto", height: "auto" }}
                       />
-                        
-                      
+
                       <div class="card__content">
                         <p class="card__title">Player Details</p>
                         <p class="card__description">
@@ -130,7 +137,6 @@ export default function Create_Game() {
                             <li>Game ID : {e.game_id}</li>
                             <li>Amount : ${e.amount}</li>
                           </ul>
-                          
                         </p>
                       </div>
                     </div>
