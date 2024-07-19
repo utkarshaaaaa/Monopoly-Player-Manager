@@ -50,7 +50,7 @@ router.route("/lap:id").post(async (req, res) => {
       { new: true },
       (err, data) => {
         if (err) {
-          console.log("Data updation Failed");
+          console.log("Amount updation Failed");
         }
         res.status(200).json({ updated_lap_amount_details: data });
       }
