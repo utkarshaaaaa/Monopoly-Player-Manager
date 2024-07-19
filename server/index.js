@@ -1,7 +1,7 @@
 const express=require('express')
 const cors=require('cors')
 
-const router=require('./routes/routers')
+const router=require('./routers')
 const moongose=require('mongoose')
 const app=express()
 
