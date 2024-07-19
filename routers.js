@@ -100,11 +100,9 @@ router.route("/transfer/:id").post(async (req, res) => {
     const { player_id, amountSend } = req.body;
 
     if (!id || !player_id || !amountSend) {
-      return res
-        .status(400)
-        .json({
-          message: "ID, player_id, and amountSend are required fields.",
-        });
+      return res.status(400).json({
+        message: "ID, player_id, and amountSend are required fields.",
+      });
     }
 
     const receiverPlayer = await user.findById(id);
