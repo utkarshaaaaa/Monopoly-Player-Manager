@@ -6,7 +6,7 @@ import "../cssForPages/joinedGame.css";
 import Players from "./Players";
 
 export default function Enter_joined_Game() {
-  const { joined_Players_details, set_joined_Players_details } =
+  const { joined_Players_details, set_joined_Players_details,game_Id, set_game_Id } =
     useContext(Data);
 
   const location = useLocation();

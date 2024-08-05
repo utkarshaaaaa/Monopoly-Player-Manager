@@ -1,17 +1,16 @@
 .container {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     padding: 20px;
+    
 }
 
 .item {
-    width: auto; /* Adjust width as needed */
-    margin: 10px 3px 3px;
-
+    width: auto; 
+    margin: 10px ;
     position: relative;
-    height: 120px; /* Adjust height as needed */
+    height: 120px; 
     border: 3px solid #290808;
     box-sizing: border-box;
     display: flex;
@@ -21,27 +20,24 @@
 .card {
     position: relative;
     width: 300px;
-    height: 200px;
-    background-color: #f2f2f2;
+    height: 300px;
     border-radius: 10px;
     display: flex;
     border: 2px solid black;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    perspective: 1000px;
-    box-shadow: 0 0 0 5px #ffffff80;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
   .card svg {
-    width: 48px;
+    width: 22px;
     fill: #333;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
   .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     box-shadow: 0 8px 16px rgba(189, 17, 17, 0.2);
   }
   
@@ -53,7 +49,6 @@
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #f2f2f2;
     transform: rotateX(-90deg);
     transform-origin: bottom;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -84,3 +79,84 @@ li{
     list-style-type: circle;
 
 }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form__group {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+  max-width: 680px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 500px;
+  margin-top: 30px;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  font-weight: 500;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #1b1c1c, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #d3f3fd;
+  font-weight: 700;
+}
+
+
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}

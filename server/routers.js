@@ -207,10 +207,10 @@ router.route("/pay_Bank:id").post(async (req, res) => {
 
   const current_player = await user.findOne({ _id: player_id });
 
-  if (current_player.amount < pay_Bank) {
+  if (current_player.amount < Number(pay_Bank)) {
     res.json({ message: "not enough balance" });
   }
-  const player_Updated_Amount = current_player.amount - pay_Bank;
+  const player_Updated_Amount = current_player.amount - Number(pay_Bank);
 
   user.findOneAndUpdate(
     { _id: player_id },
@@ -239,7 +239,7 @@ router.route("/adding_Credits:id").post(async (req, res) => {
 
   const player_Details = await user.findOne({ _id: id });
 
-  if (amount < 0) {
+  if (Number(amount) < 0) {
     res.json({ eror_Message: "Enter positive Amount" });
   }
 

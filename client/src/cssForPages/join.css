@@ -1,9 +1,13 @@
+
+body{
+  background: linear-gradient(90deg, rgba(121,9,98,1) 9%, rgba(0,212,255,1) 100%);
+}
 .loader {
     --col1: rgba(228, 19, 141, 0.925);
     --col2: rgb(255, 179, 80);
-    font-size: 5em;
-    font-weight: 600;
-    perspective: 800px;
+    font-size: 7em;
+    font-weight:bold;
+    perspective: 900px;
     position: relative;
   }
   
@@ -52,13 +56,13 @@
   
   @keyframes anim {
     0%, 100% {
-      text-shadow: 2px 0px 2px rgba(179, 158, 158, .5);
+      text-shadow: 2px 0px 2px rgba(242, 75, 75, 0.5);
     }
   
     50% {
       background-size: 0%;
       background-position-x: left;
-      text-shadow: 2px 10px 6px rgba(179, 158, 158, 1);
+      text-shadow: 2px 10px 6px rgb(179, 230, 39);
     }
   }
   
@@ -81,6 +85,178 @@
       opacity: .85;
     }
   }
+
+
+.input-gameId {
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #e8e8e8;
+  box-shadow: 20px 20px 60px #c5c5c5,
+     -20px -20px 60px #ffffff;
+  transition: 0.3s;
+ }
+ 
+ .input-gameId:focus {
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+     inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+.input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 600px;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 400px;
+  border: none;
+  border-bottom: 3px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cssbuttons-io-button {
+  background: #a370f0;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
 
 
 
