@@ -180,7 +180,7 @@ export default function PlayerInfo() {
             <br />
             <div className="input-box">
               <label>
-                <h4> Choose person to Pay :</h4>
+                <h4> Choose Player to Pay :</h4>
               </label>
               <input
                 placeholder="pay.."

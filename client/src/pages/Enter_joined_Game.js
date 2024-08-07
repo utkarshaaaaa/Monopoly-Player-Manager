@@ -63,7 +63,7 @@ export default function Enter_joined_Game() {
     <>
       <div className="parent">
         <div className="heading">
-          <h2>Players Playing {playersPlaying} </h2>
+          <h2 className="players-count">Players Playing  : {playersPlaying} </h2>
         </div>
         <div></div>
         <div>
