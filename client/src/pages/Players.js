@@ -68,7 +68,7 @@ export default function Players({
                     <p class="card__title">Player Info</p>
                     <p class="card__description">
                       <ul>
-                        <li>Player Name: {players.playerName}</li>
+                        <li> Name : {players.playerName}</li>
                         <li>Amount : {players.amount}</li>
                         <li>
                           Properties:

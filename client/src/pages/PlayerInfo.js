@@ -13,7 +13,7 @@ export default function PlayerInfo() {
 
   const [Player_info, set_Player_Info] = useState([]);
   const [loadingPayment, setLoadingPayment] = useState(false);
-  const[loadingLapAmount,setLoadingLapAmount]=useState(false)
+  const [loadingLapAmount, setLoadingLapAmount] = useState(false);
   const [property, setProperty] = useState("");
   const [PlayersToPay, setPlayersToPay] = useState([]);
   const [pay, setPay] = useState();
@@ -67,23 +67,19 @@ export default function PlayerInfo() {
   };
 
   const lapAmount = () => {
-
-    setLoadingLapAmount(true)
+    setLoadingLapAmount(true);
 
     setTimeout(() => {
-
       axios
-      .post(`http://localhost:3001/players/lap${PlayerId}`)
-      .then((res) => {
-        console.log(res.data)
-        setLoadingLapAmount(false)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      
+        .post(`http://localhost:3001/players/lap${PlayerId}`)
+        .then((res) => {
+          console.log(res.data);
+          setLoadingLapAmount(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }, 1600);
-    
   };
 
   const handlePayment = (e) => {
@@ -91,7 +87,7 @@ export default function PlayerInfo() {
   };
 
   const payPlayerId = (e) => {
-    console.log(e.target.value);
+   
     setotherPlayersId(e.target.value);
   };
 
@@ -114,8 +110,7 @@ export default function PlayerInfo() {
   };
 
   const payToBank = async () => {
-
-    setLoadingPayment(true)
+    setLoadingPayment(true);
     setTimeout(() => {
       axios
         .post(`http://localhost:3001/players/pay_Bank${PlayerId}`, {
@@ -155,7 +150,7 @@ export default function PlayerInfo() {
                     </div>
                     <div>
                       {" "}
-                      <h3>Player Name : {e.Player_name}</h3>
+                      <h3> Name : {e.Player_name}</h3>
                     </div>
                   </div>
 
@@ -245,15 +240,15 @@ export default function PlayerInfo() {
               </div>
 
               <button onClick={lapAmount}>
-              <div className="button_payment">
-                    {loadingLapAmount ? (
-                      <svg viewBox="25 25 50 50">
-                        <circle r="15" cy="50" cx="50"></circle>
-                      </svg>
-                    ) : (
-                      <div> Add Round Money</div>
-                    )}
-                  </div>
+                <div className="button_payment">
+                  {loadingLapAmount ? (
+                    <svg viewBox="25 25 50 50">
+                      <circle r="15" cy="50" cx="50"></circle>
+                    </svg>
+                  ) : (
+                    <div> Add Round Money</div>
+                  )}
+                </div>
               </button>
             </div>
             <button

@@ -50,13 +50,14 @@ export default function Enter_joined_Game() {
 
   //    }
 
-  const totalPlayers = () => {
-    setPlayersPlaying(joined_Players_details.length);
-  };
+ 
 
   useEffect(() => {
+    const totalPlayers = () => {
+      setPlayersPlaying(joined_Players_details.length);
+    };
     totalPlayers();
-  });
+  },[]);
   console.log(playersPlaying);
 
   return (
