@@ -6,8 +6,12 @@ import "../cssForPages/joinedGame.css";
 import Players from "./Players";
 
 export default function Enter_joined_Game() {
-  const { joined_Players_details, set_joined_Players_details,game_Id, set_game_Id } =
-    useContext(Data);
+  const {
+    joined_Players_details,
+    set_joined_Players_details,
+    game_Id,
+    set_game_Id,
+  } = useContext(Data);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -50,29 +54,29 @@ export default function Enter_joined_Game() {
 
   //    }
 
- 
-
   useEffect(() => {
     const totalPlayers = () => {
       setPlayersPlaying(joined_Players_details.length);
     };
     totalPlayers();
-  },[]);
-  console.log(playersPlaying);
+  }, []);
 
   return (
     <>
       <div className="parent">
         <div className="heading">
-          <h2 className="players-count">Players Playing  : {playersPlaying} </h2>
+          <h2 className="players-count">Players Playing : {playersPlaying} </h2>
         </div>
         <div></div>
         <div>
-          {joined_Players_details.length === 0 ? (
+          {joined_Players_details.length == 0 ? (
             <div>
               {" "}
-              <div>Game Id Not avaible</div>
-              <button onClick={navigateToCreateGame}>Create Game</button>
+              <div class="game-id-error-container">
+                <p class="game-id-error-text">Game Id Not Available</p>
+              </div>
+              <button class="create-game-button" onClick={navigateToCreateGame}>Create Game</button>
+
             </div>
           ) : (
             <div>
@@ -80,7 +84,11 @@ export default function Enter_joined_Game() {
                 {joined_Players_details.map((e, indx) => {
                   return (
                     <>
-                      <div style={{ cursor: "pointer" }} className="grid-item">
+                      <div
+                        style={{ cursor: "pointer" }}
+                        className="grid-item"
+                        indx={indx}
+                      >
                         <Players
                           id={e._id}
                           Player_name={e.Player_name}
