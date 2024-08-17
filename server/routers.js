@@ -108,10 +108,10 @@ router.route("/transfer/:id").post(async (req, res) => {
     const receiverPlayer = await user.findById(id);
     const senderPlayer = await user.findById(player_id);
 
-    if (id == receiverPlayer._id) {
-      res.json({ message: "Cannot transfer to same id" });
-      console.log("not allowed");
-    }
+    // if (id == receiverPlayer._id) {
+    //   res.json({ message: "Cannot transfer to same id" });
+      
+    // }
 
     if (senderPlayer.amount < amountSend) {
       res.json({ message: "not enough balance" });
@@ -122,14 +122,22 @@ router.route("/transfer/:id").post(async (req, res) => {
         .status(404)
         .json({ message: "Receiver or sender player not found." });
     }
+    const recieveAmount=receiverPlayer.amount + parseFloat(amountSend)
+    const sendersAmount= senderPlayer.amount - parseFloat(amountSend)
 
-    receiverPlayer.amount += parseInt(amountSend);
-    await receiverPlayer.save();
+    
+    await user.findOneAndUpdate(
+      { _id:id },
 
-    senderPlayer.amount -= parseInt(amountSend);
-    await senderPlayer.save();
+      { amount: recieveAmount},
+      { new: true }
+    );
+     await user.findOneAndUpdate(
+      { _id:player_id },
 
-    res.status(200).json({ sender: senderPlayer, receiver: receiverPlayer });
+      { amount:sendersAmount },
+      { new: true }
+    );
   } catch (error) {
     console.error("Error transferring amount:", error);
     res.status(500).json({ message: "Internal server error." });

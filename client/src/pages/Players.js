@@ -69,7 +69,7 @@ export default function Players({
                     <p class="card__description">
                       <ul>
                         <li> Name : {players.playerName}</li>
-                        <li>Amount : {players.amount}</li>
+                        <li>Amount : ${players.amount}</li>
                         <li>
                           Properties:
                           {players.properties.map((property, indx) => {
