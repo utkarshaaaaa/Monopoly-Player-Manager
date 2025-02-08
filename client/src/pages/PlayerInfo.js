@@ -26,8 +26,6 @@ export default function PlayerInfo() {
     axios
       .get(`http://localhost:3001/players/player_info${PlayerId}`)
       .then((res) => {
-        // console.log(Player_info);
-
         set_Player_Info([res.data.info]);
       })
       .catch((err) => {
