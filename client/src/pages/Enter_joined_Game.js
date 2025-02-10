@@ -73,7 +73,7 @@ export default function Enter_joined_Game() {
             <div>
               {" "}
               <div class="game-id-error-container">
-                <p class="game-id-error-text">Game Id Not Available</p>
+                <p class="game-id-error-text">Game ID Not Available or Wrong Game ID</p>
               </div>
               <button
                 className="cssbuttons-io-button"
