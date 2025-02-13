@@ -71,7 +71,7 @@ export default function Create_Game() {
   return (
     <div>
       <div>
-        <h2> Player {playersNumber}</h2>
+        <h2> Player {playersNumber-1}</h2>
       </div>
       <div>
         <h3> Game ID - {createGameId}</h3>

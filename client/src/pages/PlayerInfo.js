@@ -85,7 +85,6 @@ export default function PlayerInfo() {
   };
 
   const payPlayerId = (e) => {
-   
     setotherPlayersId(e.target.value);
   };
 
