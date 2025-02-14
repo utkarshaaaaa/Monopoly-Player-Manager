@@ -24,7 +24,7 @@ export default function PlayerInfo() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/players/player_info${PlayerId}`)
+      .get(`https://monopoly-backend-8omq.onrender.com/players/player_info${PlayerId}`)
       .then((res) => {
         set_Player_Info([res.data.info]);
       })
@@ -35,7 +35,7 @@ export default function PlayerInfo() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/players/players_data${game_Id}`)
+      .get(`https://monopoly-backend-8omq.onrender.com/players/players_data${game_Id}`)
       .then((res) => {
         console.log(res.data.info);
 
@@ -52,7 +52,7 @@ export default function PlayerInfo() {
 
   const addProperty = async () => {
     await axios
-      .post(`http://localhost:3001/players/properties_Buying${PlayerId}`, {
+      .post(`https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`, {
         property: property,
       })
       .then((res) => {
@@ -69,7 +69,7 @@ export default function PlayerInfo() {
 
     setTimeout(() => {
       axios
-        .post(`http://localhost:3001/players/lap${PlayerId}`)
+        .post(`https://monopoly-backend-8omq.onrender.com/players/lap${PlayerId}`)
         .then((res) => {
           console.log(res.data);
           setLoadingLapAmount(false);
@@ -90,7 +90,7 @@ export default function PlayerInfo() {
 
   const payCreditsToPlayers = async () => {
     await axios
-      .post(`http://localhost:3001/players/transfer/${PlayerId}`, {
+      .post(`https://monopoly-backend-8omq.onrender.com/players/transfer${PlayerId}`, {
         player_id: otherPlayersId,
         amountSend: pay,
       })
@@ -110,7 +110,7 @@ export default function PlayerInfo() {
     setLoadingPayment(true);
     setTimeout(() => {
       axios
-        .post(`http://localhost:3001/players/pay_Bank${PlayerId}`, {
+        .post(`https://monopoly-backend-8omq.onrender.com/players/pay_Bank${PlayerId}`, {
           pay_Bank: payBankAmount,
         })
         .then((res) => {

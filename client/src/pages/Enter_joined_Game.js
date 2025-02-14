@@ -26,7 +26,7 @@ export default function Enter_joined_Game() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .post(`http://localhost:3001/players/players_details${data}`)
+        .post(`https://monopoly-backend-8omq.onrender.com/players/players_details${data}`)
         .then((res) => {
           set_joined_Players_details(res.data.players);
         })

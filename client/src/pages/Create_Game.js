@@ -39,7 +39,7 @@ export default function Create_Game() {
     }
 
     axios
-      .post("http://localhost:3001/players/create", {
+      .post("https://monopoly-backend-8omq.onrender.com/players/create", {
         name: playerName,
         game_id: createGameId,
         amount: startingAmount,
