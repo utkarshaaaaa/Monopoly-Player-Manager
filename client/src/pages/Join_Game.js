@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect, useReducer } from "react";
-import axios from "axios";
 import { Data } from "../Context";
 import { useNavigate } from "react-router-dom";
 import "../cssForPages/join.css";
