@@ -8,6 +8,7 @@ export default function () {
   const location = useLocation();
 
   const PlayerId = location.state.id;
+  const[propertyDetails,setPropertyDetails]=useState([])
   useEffect(() => {
     axios
       .get(
@@ -15,6 +16,7 @@ export default function () {
       )
       .then((res) => {
         console.log(res.data)
+        setPropertyDetails([res.data.property])
       })
       .catch((error) => {
         if (error.message === "Request failed with status code 404") {
@@ -22,5 +24,17 @@ export default function () {
         }
       });
   }, []);
-  return <></>;
+  return <>
+  <div>
+    {propertyDetails.map((e)=>{
+        return <div>
+            {e.propertyName}
+
+        </div>
+    })}
+
+  </div>
+  
+  
+  </>;
 }
