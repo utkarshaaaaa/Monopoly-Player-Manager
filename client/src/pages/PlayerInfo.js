@@ -5,7 +5,7 @@ import { Data } from "../Context";
 import "../cssForPages/playerInfo.css";
 
 export default function PlayerInfo() {
-  const { game_Id } = useContext(Data);
+  const { game_Id ,Player_id} = useContext(Data);
 
   const location = useLocation();
 
@@ -21,6 +21,8 @@ export default function PlayerInfo() {
   const [payBankAmount, setPayBankAmount] = useState(0);
 
   const PlayerId = location.state.id;
+
+
 
   useEffect(() => {
     axios
@@ -51,16 +53,21 @@ export default function PlayerInfo() {
   };
 
   const addProperty = async () => {
-    await axios
-      .post(`https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`, {
-        property: property,
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    
+
+      navigate("/property_add", { state: { id:PlayerId , test: "test" } });
+  
+    // await axios
+    //   .post(`https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`, {
+    //     property: property,
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     setProperty("");
   };
 
@@ -155,17 +162,11 @@ export default function PlayerInfo() {
                     <label>
                       <h4> Add Property</h4>
                     </label>
-                    <input
-                      type="text"
-                      placeholder="Property"
-                      value={property}
-                      onChange={(e) => {
-                        handleProperty(e);
-                      }}
-                    />
                   </div>
 
                   <button onClick={addProperty}>Add</button>
+                  <button>Pay </button>
+
                 </div>
               );
             })}

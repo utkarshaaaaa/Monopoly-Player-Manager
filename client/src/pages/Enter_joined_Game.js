@@ -11,6 +11,7 @@ export default function Enter_joined_Game() {
     set_joined_Players_details,
     game_Id,
     set_game_Id,
+    currentGameId,setCurrentGameId
   } = useContext(Data);
 
   const location = useLocation();
@@ -19,14 +20,12 @@ export default function Enter_joined_Game() {
   const [playersPlaying, setPlayersPlaying] = useState(0);
 
   const data = location.state.data;
-  // set_joined_Players_details(data)
 
-  //  console.log(data.length)
-
+  
   useEffect(() => {
-    setTimeout(() => {
+    
       axios
-        .post(`https://monopoly-backend-8omq.onrender.com/players/players_details${data}`)
+        .post(`https://monopoly-backend-8omq.onrender.com/players/players_details${currentGameId}`)
         .then((res) => {
           set_joined_Players_details(res.data.players);
         })
@@ -35,12 +34,17 @@ export default function Enter_joined_Game() {
             console.log("error 404");
           }
         });
-    }, 150);
+    
   }, []);
 
   const navigateToCreateGame = () => {
     navigate("/create");
   };
+
+  const exitGame=()=>{
+    setCurrentGameId(0);
+    console.log(currentGameId)
+  }
 
   //    const AddProperties=(e,id)=>{
 
@@ -123,6 +127,7 @@ export default function Enter_joined_Game() {
             </div>
           )}
         </div>
+        <button onClick={()=>{exitGame()}}>Exit Game</button>
       </div>
     </>
   );

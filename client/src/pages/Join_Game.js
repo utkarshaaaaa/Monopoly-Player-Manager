@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../cssForPages/join.css";
 
 export default function Join_Game() {
-  const { game_Id, set_game_Id } = useContext(Data);
+  const { game_Id, set_game_Id,currentGameId,setCurrentGameId } = useContext(Data);
 
   const navigate = useNavigate();
 
@@ -36,6 +36,7 @@ export default function Join_Game() {
     //   }
 
     // })
+    setCurrentGameId(game_Id)
 
     navigate("/enter_Join_Game", { state: { data: game_Id, setdata: "test" } });
   };
