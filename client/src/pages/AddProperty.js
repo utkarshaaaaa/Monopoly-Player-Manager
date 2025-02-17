@@ -6,9 +6,9 @@ import { Data } from "../Context";
 export default function PropertyForm() {
   const location = useLocation();
   const navigate = useNavigate();
-  const PlayerId = location.state?.id; // Handle potential undefined errors
+  const PlayerId = location.state?.id; 
 
-  const { joined_Players_details, set_joined_Players_details } = useContext(Data);
+  
 
   const [propertyDetails, setPropertyDetails] = useState({
     propertyName: "",
