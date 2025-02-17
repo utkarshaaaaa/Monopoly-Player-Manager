@@ -5,7 +5,7 @@ import Enter_joined_Game from "./pages/Enter_joined_Game";
 import PlayerInfo from "./pages/PlayerInfo";
 import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
 import AddProperty from "./pages/AddProperty";
-
+import ViewProperty from "./pages/ViewProperty";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/enter_Join_Game" element={<Enter_joined_Game />} />
           <Route path="/player_info" element={<PlayerInfo />} />
           <Route path="/property_add" element={<AddProperty />} /> 
+           <Route path="/view_property" element={<ViewProperty />} />
         </Routes>
       </BrowserRouter>
     </div>

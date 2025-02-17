@@ -74,15 +74,7 @@ export default function Players({
                           Properties:
                           {players.properties.map((property, indx) => {
                             return (
-                              <div key={indx}>
-                                {/* {
-                          property ===null?<div>Null</div>:<div>
-                            {property}
-                          </div>
-                        } */}
-
-                                {property}
-                              </div>
+                              <div key={indx}>{property.propertyName}</div>
                             );
                           })}
                         </li>
