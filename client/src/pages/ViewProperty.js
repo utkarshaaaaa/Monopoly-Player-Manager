@@ -8,37 +8,32 @@ export default function () {
   const location = useLocation();
 
   const PlayerId = location.state.id;
-  const[propertyDetails,setPropertyDetails]=useState([])
+  const timeout=1000
+  const [propertyDetails, setPropertyDetails] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        `https://monopoly-backend-8omq.onrender.com/players/getUser_property${PlayerId}`
-      )
-      .then((res) => {
-        console.log(res.data)
-        setPropertyDetails([res.data.property])
-      })
-      .catch((error) => {
-        if (error.message === "Request failed with status code 404") {
-          console.log("error 404");
-        }
-      });
+    setTimeout(() => {
+      axios
+        .get(
+          `https://monopoly-backend-8omq.onrender.com/players/getUser_property${PlayerId}`
+        )
+        .then((res) => {
+          console.log(res.data);
+          setPropertyDetails([res.data.property]);
+        })
+        .catch((error) => {
+          if (error.message === "Request failed with status code 404") {
+            console.log("error 404");
+          }
+        });
+    }, timeout);
   }, []);
-  return <>
-  <div>
-    {propertyDetails.length!=0?<div>
-
-      {propertyDetails?.map((e)=>{
-        return <div>
-            {e.propertyName}
-
-        </div>
-    })}
-    </div>:<div>Owns No property</div>}
-    
-
-  </div>
-  
-  
-  </>;
+  return (
+    <>
+      <div>
+        {propertyDetails.map((e) => {
+          return <div>{e.propertyName}</div>;
+        })}
+      </div>
+    </>
+  );
 }
