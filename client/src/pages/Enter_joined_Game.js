@@ -11,65 +11,62 @@ export default function Enter_joined_Game() {
     set_joined_Players_details,
     game_Id,
     set_game_Id,
-    currentGameId,setCurrentGameId
+    currentGameId,
+    setCurrentGameId,
   } = useContext(Data);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [playersPlaying, setPlayersPlaying] = useState(0);
+  const [playersCount, setPlayersCount] = useState(0);
 
   const data = location.state.data;
 
-  
   useEffect(() => {
-    
-      axios
-        .post(`https://monopoly-backend-8omq.onrender.com/players/players_details${currentGameId}`)
-        .then((res) => {
-          set_joined_Players_details(res.data.players);
-        })
-        .catch((error) => {
-          if (error.message === "Request failed with status code 404") {
-            console.log("error 404");
-          }
-        });
-    
+    axios
+      .post(
+        `https://monopoly-backend-8omq.onrender.com/players/players_details${currentGameId}`
+      )
+      .then((res) => {
+        set_joined_Players_details(res.data.players);
+      })
+      .catch((error) => {
+        if (error.message === "Request failed with status code 404") {
+          console.log("error 404");
+        }
+      });
   }, []);
 
   const navigateToCreateGame = () => {
     navigate("/create");
   };
 
-  const exitGame=()=>{
+  const exitGame = () => {
     setCurrentGameId(0);
-    console.log(currentGameId)
-  }
-
-  //    const AddProperties=(e,id)=>{
-
-  //     axios.post(`http://localhost:3001/players/properties_Buying${id}`,properties)
-  //     .then(res=>{
-  //         console.log(res.data)
-  //     })
-  //     .catch(err=>{
-  //         console.log(err)
-  //     })
-
-  //    }
+    console.log(currentGameId);
+  };
 
   useEffect(() => {
-    const totalPlayers = () => {
-      setPlayersPlaying(joined_Players_details.length);
-    };
-    totalPlayers();
+    axios
+      .post(
+        `https://monopoly-backend-8omq.onrender.com/players/players_count${currentGameId}`
+      )
+      .then((res) => {
+        setPlayersCount(res.data.players_count);
+      })
+      .catch((error) => {
+        if (error.message === "Request failed with status code 404") {
+          console.log("error 404");
+        }
+      });
   }, []);
+
 
   return (
     <>
       <div className="parent">
         <div className="heading">
-          <h2 className="players-count">Players Playing : {playersPlaying} </h2>
+          <h2 className="players-count">Players Playing : {playersCount} </h2>
         </div>
         <div></div>
         <div>
@@ -77,7 +74,9 @@ export default function Enter_joined_Game() {
             <div>
               {" "}
               <div class="game-id-error-container">
-                <p class="game-id-error-text">Game ID Not Available or Wrong Game ID</p>
+                <p class="game-id-error-text">
+                  Game ID Not Available or Wrong Game ID
+                </p>
               </div>
               <button
                 className="cssbuttons-io-button"
@@ -127,7 +126,13 @@ export default function Enter_joined_Game() {
             </div>
           )}
         </div>
-        <button onClick={()=>{exitGame()}}>Exit Game</button>
+        <button
+          onClick={() => {
+            exitGame();
+          }}
+        >
+          Exit Game
+        </button>
       </div>
     </>
   );

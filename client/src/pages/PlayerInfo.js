@@ -5,7 +5,7 @@ import { Data } from "../Context";
 import "../cssForPages/playerInfo.css";
 
 export default function PlayerInfo() {
-  const { game_Id ,Player_id} = useContext(Data);
+  const { game_Id ,userAmount,setUserAmount} = useContext(Data);
 
   const location = useLocation();
 
@@ -39,9 +39,8 @@ export default function PlayerInfo() {
     axios
       .get(`https://monopoly-backend-8omq.onrender.com/players/players_data${game_Id}`)
       .then((res) => {
-        console.log(res.data.info);
 
-        setPlayersToPay(res.data.info);
+        setPlayersToPay(res.data.playerInfo);
       })
       .catch((err) => {
         console.log(err);
@@ -113,6 +112,23 @@ export default function PlayerInfo() {
     setPayBankAmount(e.target.value);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get(
+          `https://monopoly-backend-8omq.onrender.com/players/getUser_amount${PlayerId}`
+        )
+        .then((res) => {
+          
+          setUserAmount(res.data.amount)
+        })
+        .catch((error) => {
+          if (error.message === "Request failed with status code 404") {
+            console.log("error 404");
+          }
+        });
+    }, 200);
+  }, []);
   const payToBank = async () => {
     setLoadingPayment(true);
     setTimeout(() => {
@@ -141,7 +157,7 @@ export default function PlayerInfo() {
       <div className="par">
         <section className="container">
           <div className="form">
-            {Player_info.map((e) => {
+            {Player_info?.map((e) => {
               return (
                 <div>
                   <div className="det">
@@ -150,11 +166,11 @@ export default function PlayerInfo() {
                   <br />
                   <div className="header">
                     <div>
-                      <h3> Amount : ${e.amount}</h3>{" "}
+                      <h2> Amount : ${userAmount}</h2>{" "}
                     </div>
                     <div>
                       {" "}
-                      <h3> Name : {e.Player_name}</h3>
+                      <h2> Name : {e.Player_name}</h2>
                     </div>
                   </div>
 
@@ -193,7 +209,7 @@ export default function PlayerInfo() {
                           payPlayerId(e);
                         }}
                       >
-                        {PlayersToPay.map((player) => {
+                        {PlayersToPay?.map((player) => {
                           return (
                             <option value={player._id} key={player._id}>
                               {player.Player_name}
@@ -252,6 +268,7 @@ export default function PlayerInfo() {
             <button
               onClick={() => {
                 navigate(-1);
+
               }}
             >
               Go back
