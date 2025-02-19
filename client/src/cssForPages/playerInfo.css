@@ -259,7 +259,16 @@ svg {
    stroke-dashoffset: -125px;
   }
  }
- 
+ .input-box-property{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+ }
 
 
 
