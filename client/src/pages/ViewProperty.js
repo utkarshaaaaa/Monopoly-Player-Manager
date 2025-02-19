@@ -65,13 +65,13 @@ export default function () {
                 <span>{details.propertyName}</span>
               </div>
               <div class="second-content-view">
-                <ul>
+                <ul className="view-ul">
                   <div className="rent-Title">Rent</div>
-                  <li>Rent-{details.Rent}</li>
-                  <li>House 1-{details.House1Rent}</li>
-                  <li>House 2{details.House2Rent}</li>
-                  <li>House 3 -{details.House3Rent}</li>
-                  <li>Hotel -{details.Hotel}</li>
+                  <li className="view-li">Rent :{details.Rent}</li>
+                  <li className="view-li">House 1 :{details.House1Rent}</li>
+                  <li className="view-li">House 2 :{details.House2Rent}</li>
+                  <li className="view-li">House 3 :{details.House3Rent}</li>
+                  <li className="view-li">Hotel :{details.Hotel}</li>
                 </ul>
               </div>
             </div>

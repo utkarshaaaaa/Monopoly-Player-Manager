@@ -37,6 +37,15 @@ export default function PropertyForm() {
     } catch (error) {
       console.error("Error adding property:", error);
     }
+    setPropertyDetails({
+      propertyCost:"",
+      propertyName: "",
+      Rent: "",
+      House1Rent: "",
+      House2Rent: "",
+      House3Rent: "",
+      Hotel: "",
+    })
   };
 
   const handleViewProperty = () => {
@@ -47,7 +56,6 @@ export default function PropertyForm() {
     <>
       <div>
         <div>
-          <h2>Property Input Form</h2>
           <form onSubmit={handleSubmit}>
             <div className="par">
               <section className="container">
@@ -78,8 +86,12 @@ export default function PropertyForm() {
                     </button>
                   </div>
                   <button>Go back</button>
+                  <button onClick={handleViewProperty}>View Owned Property</button>
                 </div>
+                
               </section>
+              
+              
             </div>
           </form>
 
@@ -97,7 +109,7 @@ export default function PropertyForm() {
             <button type="submit">Submit</button>
           </form> */}
         </div>
-        <button onClick={handleViewProperty}>View Properties</button>
+       
       </div>
     </>
   );
