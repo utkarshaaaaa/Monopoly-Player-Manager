@@ -9,7 +9,7 @@ export default function PropertyForm() {
   const PlayerId = location.state?.id;
 
   const [propertyDetails, setPropertyDetails] = useState({
-    propertyCost:"",
+    propertyCost: "",
     propertyName: "",
     Rent: "",
     House1Rent: "",
@@ -17,6 +17,9 @@ export default function PropertyForm() {
     House3Rent: "",
     Hotel: "",
   });
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,24 +31,33 @@ export default function PropertyForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        `https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`,
-        { property: propertyDetails }
-      );
-      console.log("Property Added:", response.data);
-    } catch (error) {
-      console.error("Error adding property:", error);
+
+    if (
+      propertyDetails.Hotel ||
+      propertyDetails.propertyName ||
+      propertyDetails.Rent == ""
+    ) {
+       
+    } else {
+      try {
+        const response = await axios.post(
+          `https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`,
+          { property: propertyDetails }
+        );
+        console.log("Property Added:", response.data);
+      } catch (error) {
+        console.error("Error adding property:", error);
+      }
+      setPropertyDetails({
+        propertyCost: "",
+        propertyName: "",
+        Rent: "",
+        House1Rent: "",
+        House2Rent: "",
+        House3Rent: "",
+        Hotel: "",
+      });
     }
-    setPropertyDetails({
-      propertyCost:"",
-      propertyName: "",
-      Rent: "",
-      House1Rent: "",
-      House2Rent: "",
-      House3Rent: "",
-      Hotel: "",
-    })
   };
 
   const handleViewProperty = () => {
@@ -77,23 +89,23 @@ export default function PropertyForm() {
                         onChange={handleChange}
                       />
                     ))}
-                    
                   </div>
 
-                  <div className="input-box" type="submit">
+                  <div className="input-box" >
                     <button>
-                      <div className="button_payment">Add Property Details</div>
+                      <div className="button_payment" onClick={handleSubmit}>Add Property Details</div>
                     </button>
                   </div>
-                  <button>Go back</button>
-                  <button onClick={handleViewProperty}>View Owned Property</button>
+                  <button onClick={goBack}>Go back</button>
+                 
+                  <button onClick={handleViewProperty}>
+                    View Owned Property
+                  </button>
                 </div>
-                
               </section>
-              
-              
             </div>
           </form>
+          
 
           {/* <form onSubmit={handleSubmit}>
             {Object.entries(propertyDetails).map(([key, value]) => (
@@ -109,7 +121,6 @@ export default function PropertyForm() {
             <button type="submit">Submit</button>
           </form> */}
         </div>
-       
       </div>
     </>
   );

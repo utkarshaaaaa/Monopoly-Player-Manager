@@ -16,7 +16,6 @@ export default function () {
   const [totalOwnedProperty, settotalOwnedProperty] = useState(0);
 
   const PlayerId = location.state.id;
-  const totalPrice = 0;
   useEffect(() => {
     axios
       .get(
@@ -50,12 +49,11 @@ export default function () {
     <>
       <div>
         <div>
-          <div>
+          <div className="view-header">
             <span>Properties Owned {totalOwnedProperty}</span>
+            <span>Total Cost Of Property : ${totalPriceOfProperty}</span>
           </div>
-          <div>
-            <span>Total Cost Of Property : {totalPriceOfProperty}</span>
-          </div>
+          
         </div>
 
         <div class="grid-container-view">

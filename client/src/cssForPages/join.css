@@ -1,129 +1,321 @@
 
 body{
-  background: linear-gradient(90deg, rgba(121,9,98,1) 9%, rgba(0,212,255,1) 100%);
+  width: 100%;
+  background: linear-gradient(
+    #00eff8,
+    #f800b4,
+    #ebf503,
+    #02f6c1,
+    #00eff8,
+    #9400f8
+  );
+  
+}
+
+body.checkers {
+  width: 100%;
+  height: 100%;
+  --color1: rgb(108, 231, 221);
+  --color2: rgb(250, 255, 178);
+  background-color: var(--color1);
+  background-image: linear-gradient(45deg, var(--color2) 25%, transparent 25%, transparent 75%, var(--color2) 75%, var(--color2)), 
+                    linear-gradient(45deg, var(--color2) 25%, var(--color1) 25%, var(--color1) 75%, var(--color2) 75%, var(--color2));
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px; 
+}
+body.light-mode{
+  width: 100%;
+  height: 100%;
+
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+}
+body.rain {
+  width: 100%;
+  height: 100%;
+  background: #79aaf3;
+  background-image: radial-gradient(4px 100px at 0px 235px, rgb(20, 21, 20), #0000),
+    radial-gradient(4px 100px at 300px 235px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 117.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 252px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 252px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 126px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 150px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 150px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 75px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 253px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 253px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 126.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 204px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 204px, rgb(10, 11, 10), #0000),
+    radial-gradient(1.5px 1.5px at 150px 102px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 134px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 134px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 67px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 179px, rgb(14, 21, 41), #0000),
+    radial-gradient(4px 100px at 300px 179px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 89.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 299px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 299px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 149.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 215px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 215px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 107.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 281px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 281px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 140.5px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 158px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 158px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 79px, #0f0 100%, #0000 150%),
+    radial-gradient(4px 100px at 0px 210px, #0f0, #0000),
+    radial-gradient(4px 100px at 300px 210px, #0f0, #0000),
+    radial-gradient(1.5px 1.5px at 150px 105px, #0f0 100%, #0000 150%);
+  background-size:
+    300px 235px,
+    300px 235px,
+    300px 235px,
+    300px 252px,
+    300px 252px,
+    300px 252px,
+    300px 150px,
+    300px 150px,
+    300px 150px,
+    300px 253px,
+    300px 253px,
+    300px 253px,
+    300px 204px,
+    300px 204px,
+    300px 204px,
+    300px 134px,
+    300px 134px,
+    300px 134px,
+    300px 179px,
+    300px 179px,
+    300px 179px,
+    300px 299px,
+    300px 299px,
+    300px 299px,
+    300px 215px,
+    300px 215px,
+    300px 215px,
+    300px 281px,
+    300px 281px,
+    300px 281px,
+    300px 158px,
+    300px 158px,
+    300px 158px,
+    300px 210px,
+    300px 210px,
+    300px 210px;
+  animation: hi 150s linear infinite;
+}
+
+@keyframes hi {
+  0% {
+    background-position:
+      0px 220px,
+      3px 220px,
+      151.5px 337.5px,
+      25px 24px,
+      28px 24px,
+      176.5px 150px,
+      50px 16px,
+      53px 16px,
+      201.5px 91px,
+      75px 224px,
+      78px 224px,
+      226.5px 350.5px,
+      100px 19px,
+      103px 19px,
+      251.5px 121px,
+      125px 120px,
+      128px 120px,
+      276.5px 187px,
+      150px 31px,
+      153px 31px,
+      301.5px 120.5px,
+      175px 235px,
+      178px 235px,
+      326.5px 384.5px,
+      200px 121px,
+      203px 121px,
+      351.5px 228.5px,
+      225px 224px,
+      228px 224px,
+      376.5px 364.5px,
+      250px 26px,
+      253px 26px,
+      401.5px 105px,
+      275px 75px,
+      278px 75px,
+      426.5px 180px;
+  }
+  to {
+    background-position:
+      0px 6800px,
+      3px 6800px,
+      151.5px 6917.5px,
+      25px 13632px,
+      28px 13632px,
+      176.5px 13758px,
+      50px 5416px,
+      53px 5416px,
+      201.5px 5491px,
+      75px 17175px,
+      78px 17175px,
+      226.5px 17301.5px,
+      100px 5119px,
+      103px 5119px,
+      251.5px 5221px,
+      125px 8428px,
+      128px 8428px,
+      276.5px 8495px,
+      150px 9876px,
+      153px 9876px,
+      301.5px 9965.5px,
+      175px 13391px,
+      178px 13391px,
+      326.5px 13540.5px,
+      200px 14741px,
+      203px 14741px,
+      351.5px 14848.5px,
+      225px 18770px,
+      228px 18770px,
+      376.5px 18910.5px,
+      250px 5082px,
+      253px 5082px,
+      401.5px 5161px,
+      275px 6375px,
+      278px 6375px,
+      426.5px 6480px;
+  }
+  
+}
+
+
+body.dark-mode {
+  width: 100%;
+  height: 100%;
+  --color: rgba(114, 114, 114, 0.3);
+  background-color: #191a1a;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+}
+
+body.dot {
+  width: 100%;
+  height: 100%;
+
+  background-color: #e5e5f7;
+  background-image: radial-gradient(#444cf7 10%, transparent 10%),
+                      radial-gradient(#444cf7 10%, transparent 10%);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+
 }
 .loader {
-    --col1: rgba(228, 19, 141, 0.925);
-    --col2: rgb(255, 179, 80);
-    font-size: 7em;
-    font-weight:bold;
-    perspective: 900px;
-    position: relative;
-  }
-  
-  .loader::after,
-  .loader::before,
-  .loader .text::after,
-  .loader .text::before {
-    perspective: 800px;
-    animation: anim 2s ease-in-out infinite, dotMove 10s ease-out alternate infinite, move 10s linear infinite 1s;
-    ;
-    content: '●';
-    color: var(--col1);
-    position: absolute;
-    translate: -60px 500px;
-    width: 5px;
-    height: 5px;
-  }
-  
-  .loader::before {
-    animation-delay: 3s;
-    color: var(--col1);
-  }
-  
-  .loader .text::before {
-    color: var(--col2);
-    animation-delay: 2s;
-  }
-  
-  .loader .text::after {
-    color: var(--col2);
-  }
-  
-  .loader .text {
-    animation: anim 20s linear infinite, move 10s linear infinite 1s;
-    color: transparent;
-    background-image: linear-gradient(90deg, 
-    var(--col1) 0%,
-    var(--col2) 100%);
-    background-clip: text;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    transform: skew(5deg, -5deg);
-    -webkit-background-clip: text;
-    position: relative;
-  }
-  
-  @keyframes anim {
-    0%, 100% {
-      text-shadow: 2px 0px 2px rgba(242, 75, 75, 0.5);
-    }
-  
-    50% {
-      background-size: 0%;
-      background-position-x: left;
-      text-shadow: 2px 10px 6px rgb(179, 230, 39);
-    }
-  }
-  
-  @keyframes move {
-    50% {
-      translate: 0px 0px;
-      rotate: x 60deg;
-      transform: skew(-5deg, 5deg);
-    }
-  }
-  
-  @keyframes dotMove {
-    0%, 100% {
-      translate: -60px 300px;
-    }
-  
-    50% {
-      translate: 160px -250px;
-      scale: .5;
-      opacity: .85;
-    }
+  --col1: rgba(228, 19, 141, 0.925);
+  --col2: rgb(255, 179, 80);
+  font-size: 7em;
+  font-weight: bold;
+  perspective: 900px;
+  position: relative;
+}
+
+.loader::after,
+.loader::before,
+.loader .text::after,
+.loader .text::before {
+  perspective: 800px;
+  animation: anim 2s ease-in-out infinite,
+    dotMove 10s ease-out alternate infinite, move 10s linear infinite 1s;
+  content: "●";
+  color: var(--col1);
+  position: absolute;
+  translate: -60px 500px;
+  width: 5px;
+  height: 5px;
+}
+
+.loader::before {
+  animation-delay: 3s;
+  color: var(--col1);
+}
+
+.loader .text::before {
+  color: var(--col2);
+  animation-delay: 2s;
+}
+
+.loader .text::after {
+  color: var(--col2);
+}
+
+.loader .text {
+  animation: anim 20s linear infinite, move 10s linear infinite 1s;
+  color: transparent;
+  background-image: linear-gradient(90deg, var(--col1) 0%, var(--col2) 100%);
+  background-clip: text;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transform: skew(5deg, -5deg);
+  -webkit-background-clip: text;
+  position: relative;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    text-shadow: 2px 0px 2px rgba(242, 75, 75, 0.5);
   }
 
+  50% {
+    background-size: 0%;
+    background-position-x: left;
+    text-shadow: 2px 10px 6px rgb(179, 230, 39);
+  }
+}
+
+@keyframes move {
+  50% {
+    translate: 0px 0px;
+    rotate: x 60deg;
+    transform: skew(-5deg, 5deg);
+  }
+}
+
+@keyframes dotMove {
+  0%,
+  100% {
+    translate: -60px 300px;
+  }
+
+  50% {
+    translate: 160px -250px;
+    scale: 0.5;
+    opacity: 0.85;
+  }
+}
 
 .input-gameId {
   border: none;
   padding: 1rem;
   border-radius: 1rem;
   background: #e8e8e8;
-  box-shadow: 20px 20px 60px #c5c5c5,
-     -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
   transition: 0.3s;
- }
- 
- .input-gameId:focus {
+}
+
+.input-gameId:focus {
   outline-color: #e8e8e8;
   background: #e8e8e8;
-  box-shadow: inset 20px 20px 60px #c5c5c5,
-     inset -20px -20px 60px #ffffff;
+  box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
   transition: 0.3s;
- }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 .input-container {
   position: relative;
   margin: 50px auto;
@@ -171,29 +363,6 @@ body{
 .input-container input[type="text"]:valid ~ .underline {
   transform: scaleX(1);
 }
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .cssbuttons-io-button {
   background: #a370f0;
@@ -250,14 +419,3 @@ body{
 .cssbuttons-io-button:active .icon {
   transform: scale(0.95);
 }
-
-
-
-
-
-
-
-
-
-
-

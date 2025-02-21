@@ -6,6 +6,7 @@ import PlayerInfo from "./pages/PlayerInfo";
 import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
 import AddProperty from "./pages/AddProperty";
 import ViewProperty from "./pages/ViewProperty";
+import ThemeChanger from "./pages/ThemeChanger";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/player_info" element={<PlayerInfo />} />
           <Route path="/property_add" element={<AddProperty />} /> 
            <Route path="/view_property" element={<ViewProperty />} />
+           <Route path="/theme_changer" element={<ThemeChanger/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -5,7 +5,7 @@ import { Data } from "../Context";
 import "../cssForPages/playerInfo.css";
 
 export default function PlayerInfo() {
-  const { game_Id ,userAmount,setUserAmount} = useContext(Data);
+  const { game_Id, userAmount, setUserAmount } = useContext(Data);
 
   const location = useLocation();
 
@@ -22,11 +22,11 @@ export default function PlayerInfo() {
 
   const PlayerId = location.state.id;
 
-
-
   useEffect(() => {
     axios
-      .get(`https://monopoly-backend-8omq.onrender.com/players/player_info${PlayerId}`)
+      .get(
+        `https://monopoly-backend-8omq.onrender.com/players/player_info${PlayerId}`
+      )
       .then((res) => {
         set_Player_Info([res.data.info]);
       })
@@ -37,9 +37,10 @@ export default function PlayerInfo() {
 
   useEffect(() => {
     axios
-      .get(`https://monopoly-backend-8omq.onrender.com/players/players_data${game_Id}`)
+      .get(
+        `https://monopoly-backend-8omq.onrender.com/players/players_data${game_Id}`
+      )
       .then((res) => {
-
         setPlayersToPay(res.data.playerInfo);
       })
       .catch((err) => {
@@ -47,25 +48,9 @@ export default function PlayerInfo() {
       });
   }, []);
 
-  const handleProperty = (e) => {
-    setProperty(e.target.value);
-  };
-
   const addProperty = async () => {
+    navigate("/property_add", { state: { id: PlayerId, test: "test" } });
 
-    
-
-      navigate("/property_add", { state: { id:PlayerId , test: "test" } });
-  
-    // await axios
-    //   .post(`https://monopoly-backend-8omq.onrender.com/players/properties_Buying${PlayerId}`, {
-    //     property: property,
-    //   })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
     //   });
     setProperty("");
   };
@@ -75,7 +60,9 @@ export default function PlayerInfo() {
 
     setTimeout(() => {
       axios
-        .post(`https://monopoly-backend-8omq.onrender.com/players/lap${PlayerId}`)
+        .post(
+          `https://monopoly-backend-8omq.onrender.com/players/lap${PlayerId}`
+        )
         .then((res) => {
           console.log(res.data);
           setLoadingLapAmount(false);
@@ -89,6 +76,9 @@ export default function PlayerInfo() {
   const handlePayment = (e) => {
     setPay(e.target.value);
   };
+  const handleViewProperty = () => {
+    navigate("/view_property", { state: { id: PlayerId } });
+  };
 
   const payPlayerId = (e) => {
     setotherPlayersId(e.target.value);
@@ -96,10 +86,13 @@ export default function PlayerInfo() {
 
   const payCreditsToPlayers = async () => {
     await axios
-      .post(`https://monopoly-backend-8omq.onrender.com/players/transfer${PlayerId}`, {
-        player_id: otherPlayersId,
-        amountSend: pay,
-      })
+      .post(
+        `https://monopoly-backend-8omq.onrender.com/players/transfer${PlayerId}`,
+        {
+          player_id: otherPlayersId,
+          amountSend: pay,
+        }
+      )
       .then((res) => {
         console.log(res.data);
       })
@@ -119,8 +112,7 @@ export default function PlayerInfo() {
           `https://monopoly-backend-8omq.onrender.com/players/getUser_amount${PlayerId}`
         )
         .then((res) => {
-          
-          setUserAmount(res.data.amount)
+          setUserAmount(res.data.amount);
         })
         .catch((error) => {
           if (error.message === "Request failed with status code 404") {
@@ -133,9 +125,12 @@ export default function PlayerInfo() {
     setLoadingPayment(true);
     setTimeout(() => {
       axios
-        .post(`https://monopoly-backend-8omq.onrender.com/players/pay_Bank${PlayerId}`, {
-          pay_Bank: payBankAmount,
-        })
+        .post(
+          `https://monopoly-backend-8omq.onrender.com/players/pay_Bank${PlayerId}`,
+          {
+            pay_Bank: payBankAmount,
+          }
+        )
         .then((res) => {
           if (res.data.message === "not enough balance") {
             alert("not enough balance");
@@ -174,15 +169,12 @@ export default function PlayerInfo() {
                     </div>
                   </div>
 
-                  <div className="input-box">
-                    <label>
-                      <h4> Add Property</h4>
-                    </label>
-                  </div>
+                  <div className="input-box"></div>
 
-                  <button onClick={addProperty}>Add</button>
-                  <button>Pay </button>
-
+                  <button onClick={addProperty}>Add Property</button>
+                  <button onClick={handleViewProperty}>
+                    View Owned Property
+                  </button>
                 </div>
               );
             })}
@@ -268,7 +260,6 @@ export default function PlayerInfo() {
             <button
               onClick={() => {
                 navigate(-1);
-
               }}
             >
               Go back
