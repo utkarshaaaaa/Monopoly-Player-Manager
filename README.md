@@ -3,7 +3,7 @@
 
 ## Overview
 
-A digital banking system for Monopoly where players can buy property, add money, and send money to other players. The game can be restarted using a Game ID. This application is deployed on Render.
+A digital banking system for Monopoly where players can buy property, add money, and send money to other players. The game can be restarted using a Game ID. This application is deployed on Render.Hope you enjoy the application :)
 
 
 ## Features 
